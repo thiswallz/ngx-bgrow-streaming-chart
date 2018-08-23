@@ -21,6 +21,14 @@
     <td mat-cell *matCellDef="let element;let i=index">
       {{i}}
        <ngx-row-streaming-chart
+         series="2"
+         [seriesOptions]="
+         [{
+            strokeStyle: 'rgb(239, 255, 0)'
+         },{
+            strokeStyle: 'rgba(0, 200, 50)'
+         }]
+         "
          [props]="
          {
             grid: {

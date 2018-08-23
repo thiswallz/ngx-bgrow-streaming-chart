@@ -39,6 +39,7 @@ export class NgxRowStreamingChartComponent implements OnInit, AfterViewInit {
   @Input() tooltip: boolean = false;
   @Input() delay: number = 500;
   @Input() series: number = 1;
+  @Input() seriesOptions: any = [];
   @Input() values = [0];
 
   chart: any;
@@ -73,7 +74,8 @@ export class NgxRowStreamingChartComponent implements OnInit, AfterViewInit {
     for (let i = 0; i < this.series; i++) {
       this.dataSeries = [...this.dataSeries, new smoo.TimeSeries()];
       this.chart.addTimeSeries(this.dataSeries[this.dataSeries.length - 1], {
-        strokeStyle: "rgba(0, 255, 0, 1)"
+        strokeStyle: "rgba(0, 255, 0, 1)",
+        ...this.seriesOptions[i]
       });
     }
 
@@ -81,14 +83,17 @@ export class NgxRowStreamingChartComponent implements OnInit, AfterViewInit {
 
     setInterval(() => {
       for (let i = 0; i < this.series; i++) {
-        this.dataSeries[i].append(Date.now(), this.values[i]);
+        console.log(null, this.values[i]);
+        this.dataSeries[i].append(
+          Date.now(),
+          parseFloat(String(this.values[i]))
+        );
       }
     }, 500);
   }
 
   configurePosition() {
     const container = this.elRef.nativeElement.parentNode.parentNode;
-
     for (let i = 0; i < container.children.length; i++) {
       container.children[i].style.zIndex = 100;
       container.children[i].style.position = "relative";

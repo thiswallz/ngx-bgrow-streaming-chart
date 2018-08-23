@@ -34,7 +34,7 @@ export class AppComponent {
   title = "nx-magic-row";
   displayedColumns: string[] = ["position", "name", "weight", "symbol"];
   dataSource = ELEMENT_DATA;
-  dynValues = [100];
+  dynValues = [100, 50];
   dynProps = {
     grid: {
       strokeStyle: "rgb(217, 255, 174)",
@@ -47,6 +47,7 @@ export class AppComponent {
 
   changeValue(el) {
     console.log(el);
-    this.dynValues[0] = el;
+    this.dynValues[0] = parseInt(el);
+    this.dynValues[1] = parseInt(el) + 10;
   }
 }
