@@ -1,0 +1,13 @@
+table {
+  width: 100%;
+}
+::ng-deep thead:first-child tr {
+  background-color: #2196f3;
+}
+th {
+  color: white;
+  font-weight: bold;
+}
+td {
+  color: white;
+}
