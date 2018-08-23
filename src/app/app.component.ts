@@ -49,5 +49,6 @@ export class AppComponent {
     console.log(el);
     this.dynValues[0] = parseInt(el);
     this.dynValues[1] = parseInt(el) + 10;
+    this.dynValues[2] = parseInt(el) * 10;
   }
 }
