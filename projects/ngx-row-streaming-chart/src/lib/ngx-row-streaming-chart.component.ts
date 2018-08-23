@@ -80,7 +80,7 @@ export class NgxRowStreamingChartComponent implements OnInit, AfterViewInit {
     }
 
     this.chart.streamTo(<HTMLCanvasElement>canvas, this.delay);
-
+    // TODO remove interval when it is destroyed
     setInterval(() => {
       for (let i = 0; i < this.series; i++) {
         console.log(null, this.values[i]);
